@@ -22,8 +22,7 @@ An application that enables users to share secrets accessible only once, integra
 ## Steps to build and run the basic app
 
 ```bash
-docker build -t one-time-secret-app .
-docker run -d -p 3000:3000 --name my-secret-app one-time-secret-app
+docker-compose up --build
 ```
 
 [Click here to view the app](http://localhost:3000/) and see "Hello World!".
@@ -31,11 +30,12 @@ docker run -d -p 3000:3000 --name my-secret-app one-time-secret-app
 ## TODOS:
 ### Application Development:
 #### a. Containerization:
-- Write necessary commands in the Dockerfile to build and run the application within a Docker container.
+- Write necessary commands in the Dockerfile and docker-compose to build and run the application within a Docker container.
+- The front end can be done in React or another JS framework.
 
 #### b. Database Setup:
 - Choose and set up a database (preferably MongoDB).
-- Possibly create a `docker-compose.yml` file to orchestrate the application and database containers.
+- Expand the `docker-compose.yml` file to orchestrate the application and database containers.
 
 #### c. Implement Application Features:
 - Develop the necessary endpoints, services, and frontend to meet the acceptance criteria mentioned in the summary.
@@ -50,3 +50,6 @@ docker run -d -p 3000:3000 --name my-secret-app one-time-secret-app
 
 #### b. Code Comments:
 - Ensure the code is well-commented to explain the logic, especially for the core features of the one-time secret application.
+
+### Contributing Code via Pull Request:
+- Commit your changes and push them to your feature branch on GitHub. Create a pull request targeting the main branch for review.
