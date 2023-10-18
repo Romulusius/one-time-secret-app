@@ -2,8 +2,8 @@
   "name": "one-time-secret-app",
   "version": "1.0.0",
   "main": "index.js",
-  "repository": "git@github.com:uqrtj/one-time-secret-app.git",
-  "author": "Rahul <r.joseph@uq.edu.au>",
+  "repository": "git@github.com:UQ-eLIPSE/one-time-secret-app.git",
+  "author": "eLIPSE <elipse@uq.edu.au>",
   "license": "MIT",
   "devDependencies": {
     "eslint": "^8.51.0",
