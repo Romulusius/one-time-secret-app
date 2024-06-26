@@ -1,16 +1,28 @@
 {
   "name": "one-time-secret-app",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "dist/index.js",
   "repository": "git@github.com:UQ-eLIPSE/one-time-secret-app.git",
   "author": "eLIPSE <elipse@uq.edu.au>",
   "license": "MIT",
+  "scripts": {
+    "test": "jest"
+  },
   "devDependencies": {
+    "@babel/core": "^7.24.7",
+    "@babel/preset-env": "^7.24.7",
+    "@babel/preset-typescript": "^7.24.7",
+    "@types/express": "^4.17.21",
+    "@types/jest": "^29.5.12",
+    "@types/node": "^20.14.8",
     "eslint": "^8.51.0",
     "jest": "^29.7.0",
-    "prettier": "^3.0.3"
+    "prettier": "^3.0.3",
+    "ts-jest": "^29.1.5",
+    "typescript": "^5.5.2"
   },
   "dependencies": {
-    "express": "^4.18.2"
+    "express": "^4.18.2",
+    "mongodb": "^6.7.0"
   }
 }

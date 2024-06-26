@@ -1,5 +1,60 @@
 # one-time-secret-app
 
+## Done
+
+Done almost everything, except configuring docker-compose.yml as this is where I just don't have enough experience.
+
+### Implemented:
+
+- Added frontend: Vuejs 3 + TypeScript.
+- Changed backend to TypeScript.
+- Implemented message encryption/decryption.
+- Messages are stored encrypted in MongoDB.
+- Implemented a few tests in Jest. Covered the main aspects of encryption. Ideally needs more unit tests.
+
+### Workflow
+
+The encryption workflow is as follows:
+
+- User types in a message on the front endand clicks "Encrypt" button.
+- The message is sent to the backend endpoint via a POST request.
+- Backend encrypts the message, saves it to the database, and returns onto the client the db record id and the encryption key. The record is stored in the database without the key.
+- The frontend presents the user with link to decrypt the message.
+- The link contains the record id and the key.
+- The link opens a different page on the frontend, which send the decryption request to the backend.
+- Backend receives the record id and the key. If the record exists and the decryption is successful, the decrypted message is returned. Otherwise a corresponding error is returned. The record is deleted if it was successfully decrypted. Race condition check is implemented to ensure only one request is be fulfilled successfully.
+- The front end displays either the decrypted message or an error.
+- Repetition of the decryption request results in the "Message not found" error.
+
+### Running
+
+Since I didn’t get to implement docker-compose.yml, the services need to be started manually.
+
+Frontend start:
+```bash
+cd frontend
+npm run dev
+```
+
+Backend start:
+```bash
+npx ts-node src/index.ts
+```
+
+Mongo can be installed using a docker image (I already happened to be running one installed the same way earlier):
+```bash
+docker pull mongodb/mongodb-community-server:latest
+docker run --name mongodb -p 27017:27017 -d mongodb/mongodb-community-server:latest
+```
+
+Then in the browser navigate to the message encryption interface
+http://localhost:5173/create
+
+To run unit tests of the backend, it needs to be down, and the jest tests can be run with a command:
+```bash
+npm run test
+```
+
 ## Summary
 
 An application that enables users to share secrets accessible only once, integrating technologies like GitHub, Docker, and a preferred database.
